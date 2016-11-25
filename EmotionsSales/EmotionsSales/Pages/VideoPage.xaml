@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmotionsSales.Pages.VideoPage">
+  <StackLayout Padding="0" BackgroundColor="White">
+    <Image x:Name="imgPic" WidthRequest="150" HeightRequest="150" Aspect="AspectFit"/>
+    <Button x:Name="btnCamera" x:Id="btnCamera" Text="Use camera" Clicked="btnPic_Clicked"/>
+    <Button x:Name="btnGallery" x:Id="btnGallery" Text="Select from gallery" Clicked="btnPic_Clicked"/>
+    <Button x:Name="btnAnalyzeEmotions" Text="Analyze emotions" Clicked="btnAnalyzeEmotions_Clicked"/>
+    <Label x:Name="lblResult" Text="---" TextColor="Black" />
+    <StackLayout x:Name="panelResults"/>
+  </StackLayout>
+</ContentPage>

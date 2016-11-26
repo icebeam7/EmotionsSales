@@ -13,9 +13,12 @@ namespace EmotionsSales.Pages
 	public partial class VideoPage : ContentPage
 	{
 
+        private const ushort DarkBeaconMajorId = 2835;
+        private const ushort DarkBeaconMinorId = 60610;
 
-        private const ushort LightBeaconMajorId = 2835;
-        private const ushort LightBeaconMinorId = 60610;
+        private const ushort LightBeaconMajorId = 8327;
+        private const ushort LightBeaconMinorId = 37862;
+
         public VideoPage ()
 		{
 			InitializeComponent ();
@@ -32,6 +35,7 @@ namespace EmotionsSales.Pages
             {
                 EstimoteManager.Instance.Ranged += (sender, beacons) =>
                 {
+
                     System.Diagnostics.Debug.WriteLine("test");
 
                 };

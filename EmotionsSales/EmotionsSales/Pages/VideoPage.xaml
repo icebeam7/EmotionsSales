@@ -4,10 +4,13 @@
              x:Class="EmotionsSales.Pages.VideoPage">
   <StackLayout Padding="0" BackgroundColor="White">
     <Image x:Name="imgPic" WidthRequest="150" HeightRequest="150" Aspect="AspectFit"/>
-    <Button x:Name="btnCamera" x:Id="btnCamera" Text="Use camera" Clicked="btnPic_Clicked"/>
-    <Button x:Name="btnGallery" x:Id="btnGallery" Text="Select from gallery" Clicked="btnPic_Clicked"/>
+    <Button x:Name="btnCamera" x:Id="btnCamera" Text="Use camera for video" Clicked="btnVideo_Clicked"/>
+    <!--<Button x:Name="btnCameraPic" x:Id="btnCameraPic" Text="Use camera for picture" Clicked="btnPic_Clicked"/>
+    <Button x:Name="btnGalleryPic" x:Id="btnGalleryPic" Text="Select picture from gallery" Clicked="btnPic_Clicked"/>-->
+    <Button x:Name="btnGallery" x:Id="btnGallery" Text="Select video from gallery" Clicked="btnVideo_Clicked"/>
     <Button x:Name="btnAnalyzeEmotions" Text="Analyze emotions" Clicked="btnAnalyzeEmotions_Clicked"/>
-    <Label x:Name="lblResult" Text="---" TextColor="Black" />
+    <ActivityIndicator IsVisible="False" IsRunning="False" x:Name="actProgress"/>
+    <Label x:Name="lblResult" Text="---" TextColor="Blue" FontSize="20" />
     <StackLayout x:Name="panelResults"/>
   </StackLayout>
 </ContentPage>

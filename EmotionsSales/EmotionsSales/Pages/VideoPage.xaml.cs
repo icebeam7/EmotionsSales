@@ -5,17 +5,51 @@ using System.IO;
 using EmotionsSales.Classes;
 using System.Linq;
 using Plugin.Media.Abstractions;
+using Estimotes;
+
 
 namespace EmotionsSales.Pages
 {
 	public partial class VideoPage : ContentPage
 	{
-		public VideoPage ()
+
+
+        private const ushort LightBeaconMajorId = 2835;
+        private const ushort LightBeaconMinorId = 60610;
+        public VideoPage ()
 		{
 			InitializeComponent ();
 		}
 
-        static Stream streamCopy;
+
+	    protected override async void OnAppearing()
+	    {
+	        base.OnAppearing();
+
+            var status = await EstimoteManager.Instance.Initialize();
+            // optionally pass false to authorize foreground ranging only
+            if (status == BeaconInitStatus.Success)
+            {
+                EstimoteManager.Instance.Ranged += (sender, beacons) =>
+                {
+                    System.Diagnostics.Debug.WriteLine("test");
+
+                };
+                EstimoteManager.Instance.RegionStatusChanged += (sender, region) =>
+                {
+                    System.Diagnostics.Debug.WriteLine("test");
+                };
+
+
+                EstimoteManager.Instance.StartMonitoring(new BeaconRegion("Beacon Identifier", "B9407F30-F5F8-466E-AFF9-25556B57FE6D", LightBeaconMajorId, LightBeaconMinorId));
+                EstimoteManager.Instance.StartRanging(new BeaconRegion("Beacon Identifier", "B9407F30-F5F8-466E-AFF9-25556B57FE6D", LightBeaconMajorId, LightBeaconMinorId));
+
+
+            }
+
+        }
+
+	    static Stream streamCopy;
         bool isVideo;
 
         async void btnVideo_Clicked(object sender, EventArgs e)
